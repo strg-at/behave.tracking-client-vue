@@ -19,18 +19,6 @@ export default {
       return
     }
 
-    // merge static configuration with the provided websocket entry point
-    const config = {
-      ...configuration,
-      ENTRYPOINT: options.webSocket
-    }
-
-    const dao = new TrackerWS(config)
-    const clientStorage = new ClientStorage(config)
-    const service = new TrackerService(dao, clientStorage, config)
-    // eslint-disable-next-line no-unused-vars
-    const tracker = new TrackerAPI(service, config)
-
     options = {
       ...defaultOptions,
       ...options
@@ -40,6 +28,9 @@ export default {
       options.urlTracking = false
       options.referrerTracking = false
     }
+
+    // start websocket connection
+    connect(options.webSocket)
 
     // initialize navigation tracking
     options.urlTracking && trackUrls(router)
@@ -52,4 +43,20 @@ export default {
       trackView
     }
   }
+}
+
+function connect (entryPoint) {
+  if (!entryPoint) {
+    return console.error('BeHave entry point not defined!')
+  }
+
+  const config = {
+    ...configuration,
+    ENTRYPOINT: entryPoint
+  }
+
+  const dao = new TrackerWS(config)
+  const clientStorage = new ClientStorage(config)
+  const service = new TrackerService(dao, clientStorage, config)
+  return new TrackerAPI(service, config)
 }
