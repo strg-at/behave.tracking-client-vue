@@ -1,12 +1,11 @@
-import { ContentEventProvider } from '../modules/EventProvider'
 import { createScrollTracking } from '@strg-behave/tracking-client-plugins'
 
-export function trackView (vm, contentId) {
-  const eventProvider = new ContentEventProvider('view', contentId)
+export const setupViewTracking = (getPushEvent, options) => (vm, contentId) => {
+  const pushEvent = getPushEvent(options.eventKeyView, contentId)
 
   const scrollTracking = createScrollTracking()
   const visibilityMeter = scrollTracking.visibility(vm.$el, {})
-  scrollTracking.on('visibility', ({ value }) => eventProvider.push(value))
+  scrollTracking.on('visibility', ({ value }) => pushEvent(value))
 
   vm.$once('hook:destroyed', () => visibilityMeter.unbind())
 }

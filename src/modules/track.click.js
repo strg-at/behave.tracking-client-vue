@@ -1,10 +1,8 @@
-import { ContentEventProvider } from '../modules/EventProvider'
-
-export function trackClicks (vm, contentId) {
-  const eventProvider = new ContentEventProvider('click', contentId)
+export const setupClickTracking = (getPushEvent, options) => (vm, contentId) => {
+  const pushEvent = getPushEvent(options.eventKeyClick, contentId)
 
   const onClick = () => {
-    eventProvider.push(1)
+    pushEvent(1)
     vm.$el.removeEventListener('click', onClick)
   }
 

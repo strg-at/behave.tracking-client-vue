@@ -1,21 +1,10 @@
-import { configuration, defaultOptions } from './config'
-import {
-  TrackerAPI,
-  TrackerService,
-  TrackerWS,
-  ClientStorage
-} from '@strg-behave/tracking-client-lib'
-import {
-  trackUrls,
-  trackReferrers,
-  trackScrolling,
-  trackClicks,
-  trackView
-} from './trackers'
+import { TrackerAPI, TrackerService, TrackerWS, ClientStorage } from '@strg-behave/tracking-client-lib'
+import { setupVueTracking } from './modules'
+import defaultOptions from './defaultOptions'
 
 export default {
   install (Vue, { router, options }) {
-    if (global.document.cookie.match(`${configuration.COOKIE_NAME}=1`)) {
+    if (global.document.cookie.match(`${options.config.COOKIE_NAME}=1`)) {
       return
     }
 
@@ -30,7 +19,16 @@ export default {
     }
 
     // start websocket connection
-    connect(options.webSocket)
+    const trackerAPI = connect(options.config)
+
+    // closures for tracking methods
+    const {
+      trackUrls,
+      trackReferrers,
+      trackClicks,
+      trackView,
+      trackScrolling
+    } = setupVueTracking(trackerAPI, options)
 
     // initialize navigation tracking
     options.urlTracking && trackUrls(router)
@@ -45,14 +43,9 @@ export default {
   }
 }
 
-function connect (entryPoint) {
-  if (!entryPoint) {
+function connect (config) {
+  if (!config.ENTRYPOINT) {
     return console.error('BeHave entry point not defined!')
-  }
-
-  const config = {
-    ...configuration,
-    ENTRYPOINT: entryPoint
   }
 
   const dao = new TrackerWS(config)
