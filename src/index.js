@@ -10,7 +10,11 @@ export default {
 
     options = {
       ...defaultOptions,
-      ...options
+      ...options,
+      config: {
+        ...defaultOptions.config,
+        ...options.config
+      }
     }
 
     if (!router) {
