@@ -2,7 +2,7 @@
   "name": "@strg-behave/tracking-client-vue",
   "version": "0.0.1",
   "description": "Vue.js plugin for BeHave tracking in SPAs",
-  "main": "index.js",
+  "main": "src/index.js",
   "scripts": {
     "lint": "eslint ./src"
   },
