@@ -1,18 +1,24 @@
 {
-  "name": "@strg-behave/tracking-client-vue",
+  "name": "@strg/behave-tracking-client-vue",
   "version": "0.0.2",
   "description": "Vue.js plugin for BeHave tracking in SPAs",
   "main": "src/index.js",
   "scripts": {
     "lint": "eslint ./src"
   },
+  "keywords": [
+    "Behave",
+    "STRG.BeHave",
+    "tracking",
+    "vue"
+  ],
   "dependencies": {
     "@strg-behave/tracking-client-lib": "^4.0.3",
     "@strg-behave/tracking-client-plugins": "^0.4.0"
   },
   "repository": {
     "type": "git",
-    "url": "https://bitbucket.strg.at/scm/bhv/tracking-client-vue.git"
+    "url": "https://github.com/strg-at/behave.tracking-client-vue.git"
   },
   "devDependencies": {
     "eslint": "^7.1.0",
@@ -22,6 +28,7 @@
     "eslint-plugin-promise": "^4.2.1",
     "eslint-plugin-standard": "^4.0.1"
   },
-  "author": "Andrej Bilec <andrej.bilec@smilingwords.eu>",
-  "license": "UNLICENSED"
+  "author": "STRG.",
+  "maintainers": ["Andrej Bilec <andrej.bilec@smilingwords.eu>"],
+  "license": "MIT"
 }
