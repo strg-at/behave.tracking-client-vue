@@ -18,7 +18,7 @@
   },
   "repository": {
     "type": "git",
-    "url": "https://github.com/strg-at/behave.tracking-client-vue.git"
+    "url": "git+https://github.com/strg-at/behave.tracking-client-vue.git"
   },
   "devDependencies": {
     "eslint": "^7.1.0",
@@ -29,6 +29,12 @@
     "eslint-plugin-standard": "^4.0.1"
   },
   "author": "STRG.",
-  "maintainers": ["Andrej Bilec <andrej.bilec@smilingwords.eu>"],
-  "license": "MIT"
+  "maintainers": [
+    "Andrej Bilec <andrej.bilec@smilingwords.eu>"
+  ],
+  "license": "MIT",
+  "bugs": {
+    "url": "https://github.com/strg-at/behave.tracking-client-vue/issues"
+  },
+  "homepage": "https://github.com/strg-at/behave.tracking-client-vue#readme"
 }
