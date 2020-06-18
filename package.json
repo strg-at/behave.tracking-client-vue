@@ -13,17 +13,17 @@
     "vue"
   ],
   "dependencies": {
-    "@strg-behave/tracking-client-lib": "^4.0.3",
-    "@strg-behave/tracking-client-plugins": "^0.4.0"
+    "@strg/behave-tracking-client-lib": "^4.0.3",
+    "@strg/behave-tracking-client-plugins": "^0.4.1"
   },
   "repository": {
     "type": "git",
     "url": "git+https://github.com/strg-at/behave.tracking-client-vue.git"
   },
   "devDependencies": {
-    "eslint": "^7.1.0",
+    "eslint": "^7.2.0",
     "eslint-config-standard": "^14.1.1",
-    "eslint-plugin-import": "^2.20.2",
+    "eslint-plugin-import": "^2.21.2",
     "eslint-plugin-node": "^11.1.0",
     "eslint-plugin-promise": "^4.2.1",
     "eslint-plugin-standard": "^4.0.1"
