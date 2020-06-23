@@ -1,4 +1,4 @@
-import { createScrollTracking } from '@strg-behave/tracking-client-plugins'
+import { createScrollTracking } from '@strg/behave-tracking-client-plugins'
 
 export const setupViewTracking = (getPushEvent, options) => (vm, contentId) => {
   const pushEvent = getPushEvent(options.eventKeyView, contentId)

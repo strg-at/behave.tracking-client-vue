@@ -1,4 +1,4 @@
-import { TrackerAPI, TrackerService, TrackerWS, ClientStorage } from '@strg-behave/tracking-client-lib'
+import { TrackerAPI, TrackerService, TrackerWS, ClientStorage } from '@strg/behave-tracking-client-lib'
 import { setupVueTracking } from './modules'
 import defaultOptions from './defaultOptions'
 
@@ -48,8 +48,8 @@ export default {
 }
 
 function connect (config) {
-  if (!config.ENTRYPOINT) {
-    return console.error('BeHave entry point not defined!')
+  if (!config.ENDPOINT) {
+    return console.error('BeHave end point not defined!')
   }
 
   const dao = new TrackerWS(config)

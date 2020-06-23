@@ -8,7 +8,7 @@ Client-side plugin providing a BeHave tracking interface for Vue.js based applic
 
 
     import Vue from 'vue'
-    import VueBehave from '@strg-behave/tracking-client-vue'
+    import VueBehave from '@strg/behave-tracking-client-vue'
     
     // router and options definition...
     
@@ -17,7 +17,7 @@ Client-side plugin providing a BeHave tracking interface for Vue.js based applic
 #### Nuxt.js setup
     
     import Vue from 'vue'
-    import VueBehave from '@strg-behave/tracking-client-vue'
+    import VueBehave from '@strg/behave-tracking-client-vue'
 
     // options definition...
     
@@ -44,13 +44,13 @@ Object with the following properties:
     * `CLIENT_STORAGE_NAMESPACE`
     * `COOKIE_NAME`
     * `RECONNECT_TIMEOUT`
-    * `ENTRYPOINT` - `required`
+    * `ENDPOINT` - `required`
 
 The minimal required options look like this:
 
     const options = {
       config: {
-        ENTRYPOINT: ''  // websocket entrypoint
+        ENDPOINT: ''  // websocket endpoint
       },
     }
 
@@ -71,7 +71,7 @@ User provided options object gets merged with the defaults during the plugin ins
             CLIENT_STORAGE_NAMESPACE: 'strgBeHave',
             COOKIE_NAME: 'STRG.BeHaveOptOut',
             RECONNECT_TIMEOUT: 60000,
-            ENTRYPOINT: null
+            ENDPOINT: null
         }
     }
 
