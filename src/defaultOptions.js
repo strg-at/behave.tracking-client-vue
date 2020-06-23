@@ -11,6 +11,6 @@ export default {
     CLIENT_STORAGE_NAMESPACE: 'strgBeHave',
     COOKIE_NAME: 'STRG.BeHaveOptOut',
     RECONNECT_TIMEOUT: 60000,
-    ENTRYPOINT: null
+    ENDPOINT: null
   }
 }
