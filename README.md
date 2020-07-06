@@ -32,6 +32,7 @@ Router of your Vue.js application - required if you wish to track `URLs` and `re
 ### Options
 
 Object with the following properties:
+* `debugMode` - logs events to console instead of using websocket
 * `urlTracking` - enables / disables url tracking
 * `referrerTracking` - enables / disables referrer tracking
 * `eventKeyUrl`
@@ -44,7 +45,7 @@ Object with the following properties:
     * `CLIENT_STORAGE_NAMESPACE`
     * `COOKIE_NAME`
     * `RECONNECT_TIMEOUT`
-    * `ENDPOINT` - `required`
+    * `ENDPOINT` - required if not in debug mode
 
 The minimal required options look like this:
 
@@ -54,11 +55,17 @@ The minimal required options look like this:
       },
     }
 
+Or using the debug mode:
+
+    const options = {
+      debugMode: true
+    }
 
 #### Default Options 
 User provided options object gets merged with the defaults during the plugin installation. These are the default values:
 
     {
+        debugMode: false,
         urlTracking: true,
         referrerTracking: true,
         eventKeyUrl: 'url',
