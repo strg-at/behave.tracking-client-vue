@@ -1,4 +1,5 @@
 export default {
+  debugMode: false,
   urlTracking: true,
   referrerTracking: true,
   eventKeyUrl: 'url',
