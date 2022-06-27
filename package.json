@@ -4,7 +4,8 @@
   "description": "Vue.js plugin for BeHave tracking in SPAs",
   "main": "src/index.js",
   "scripts": {
-    "lint": "eslint ./src"
+    "lint": "eslint ./src",
+    "lint:fix": "eslint ./src --fix "
   },
   "keywords": [
     "Behave",
@@ -21,7 +22,7 @@
     "url": "git+https://github.com/strg-at/behave.tracking-client-vue.git"
   },
   "devDependencies": {
-    "eslint": "^7.2.0",
+    "eslint": "^8.0.0",
     "eslint-config-standard": "^17.0.0",
     "eslint-plugin-import": "^2.21.2",
     "eslint-plugin-node": "^11.1.0",

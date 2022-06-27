@@ -9,7 +9,7 @@ export const setupVueTracking = (trackerAPI, options) => {
     trackerAPI.push({
       key: eventKey,
       value: eventValue,
-      contentId: contentId,
+      contentId,
       time: Date.now()
     })
 
