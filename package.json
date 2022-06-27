@@ -4,7 +4,8 @@
   "description": "Vue.js plugin for BeHave tracking in SPAs",
   "main": "src/index.js",
   "scripts": {
-    "lint": "eslint ./src"
+    "lint": "eslint ./src",
+    "lint:fix": "eslint ./src --fix "
   },
   "keywords": [
     "Behave",
