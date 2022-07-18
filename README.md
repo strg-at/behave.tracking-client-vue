@@ -95,18 +95,19 @@ Starts automatically if `router` is provided. If you wish to disable either url 
 ## Content Interactions
 
 Plugin exposes three tracking methods available in your components via the `$behave` property.
-* `trackScrolling(vm, contentId)`
-* `trackClicks(vm, contentId)`
-* `trackView(vm, contentId)`
+* `trackScrolling(vm, eventKey, contentId)`
+* `trackClicks(vm, eventKey, contentId)`
+* `trackView(vm, eventKey, contentId)`
 
 Where:
 * `vm` - view model of the component
+* `eventKey` - custom behave event key (optional - falls back to global plugin options)
 * `contentId` - unique identifier of the content in question 
 
 Example:
 
     mounted () {
-      this.$behave.trackClicks(this, 'product-1234')
+      this.$behave.trackClicks(this, 'behave-recommendation-box-1234-teaser-click', 'product-1234')
     },
 
 By having access to the view model of your components, plugin can properly unregister events by itself when components get destroyed. This means that as a consumer, you don't need to pollute your application's main logic with additional cleanup code.

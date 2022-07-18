@@ -1,5 +1,5 @@
-export const setupClickTracking = (getPushEvent, options) => (vm, contentId) => {
-  const pushEvent = getPushEvent(options.eventKeyClick, contentId)
+export const setupClickTracking = (getPushEvent, options) => (vm, eventKey, contentId) => {
+  const pushEvent = getPushEvent(eventKey | options.eventKeyClick, contentId)
 
   const onClick = () => {
     pushEvent(1)
