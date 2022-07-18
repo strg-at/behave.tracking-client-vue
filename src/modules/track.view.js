@@ -1,7 +1,7 @@
 import { createScrollTracking } from '@strg/behave-tracking-client-plugins'
 
 export const setupViewTracking = (getPushEvent, options) => (vm, eventKey, contentId) => {
-  const pushEvent = getPushEvent(eventKey | options.eventKeyView, contentId)
+  const pushEvent = getPushEvent(eventKey || options.eventKeyView, contentId)
 
   const scrollTracking = createScrollTracking()
   const visibilityMeter = scrollTracking.visibility(vm.$el, {})
