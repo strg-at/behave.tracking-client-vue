@@ -6,21 +6,20 @@ Client-side plugin providing a BeHave tracking interface for Vue.js based applic
 
 #### Vue.js setup
 
-
     import Vue from 'vue'
     import VueBehave from '@strg/behave-tracking-client-vue'
-    
+
     // router and options definition...
-    
+
     Vue.use(VueBehave, { router, options })
 
 #### Nuxt.js setup
-    
+
     import Vue from 'vue'
     import VueBehave from '@strg/behave-tracking-client-vue'
 
     // options definition...
-    
+
     export default ({ app: { router } }) => {
       Vue.use(VueBehave, { router, options })
     }
@@ -32,20 +31,22 @@ Router of your Vue.js application - required if you wish to track `URLs` and `re
 ### Options
 
 Object with the following properties:
-* `debugMode` - logs events to console instead of using websocket
-* `urlTracking` - enables / disables url tracking
-* `referrerTracking` - enables / disables referrer tracking
-* `eventKeyUrl`
-* `eventKeyReferrer`
-* `eventKeyClick`
-* `eventKeyScroll`
-* `eventKeyView`
-* `config` - behave configuration object
-    * `NAMESPACE`
-    * `CLIENT_STORAGE_NAMESPACE`
-    * `COOKIE_NAME`
-    * `RECONNECT_TIMEOUT`
-    * `ENDPOINT` - required if not in debug mode
+
+- `debugMode` - logs events to console instead of using websocket
+- `urlTracking` - enables / disables url tracking
+- `referrerTracking` - enables / disables referrer tracking
+- `eventKeyUrl`
+- `eventKeyReferrer`
+- `eventKeyClick`
+- `eventKeyScroll`
+- `eventKeyView`
+- `eventContentIdMode` - `default` or `crc32`
+- `config` - behave configuration object
+  - `NAMESPACE`
+  - `CLIENT_STORAGE_NAMESPACE`
+  - `COOKIE_NAME`
+  - `RECONNECT_TIMEOUT`
+  - `ENDPOINT` - required if not in debug mode
 
 The minimal required options look like this:
 
@@ -61,7 +62,8 @@ Or using the debug mode:
       debugMode: true
     }
 
-#### Default Options 
+#### Default Options
+
 User provided options object gets merged with the defaults during the plugin installation. These are the default values:
 
     {
@@ -73,6 +75,7 @@ User provided options object gets merged with the defaults during the plugin ins
         eventKeyClick: 'click',
         eventKeyScroll: 'scroll',
         eventKeyView: 'view'
+        eventContentIdMode: 'default',
         config: {
             NAMESPACE: 'strgBeHave',
             CLIENT_STORAGE_NAMESPACE: 'strgBeHave',
@@ -85,8 +88,9 @@ User provided options object gets merged with the defaults during the plugin ins
 # Usage
 
 Plugin can track engagement in two ways:
-* how user navigates the application
-* how user interacts with specific elements on the page
+
+- how user navigates the application
+- how user interacts with specific elements on the page
 
 ## Navigation tracking
 
@@ -95,14 +99,16 @@ Starts automatically if `router` is provided. If you wish to disable either url 
 ## Content Interactions
 
 Plugin exposes three tracking methods available in your components via the `$behave` property.
-* `trackScrolling(vm, eventKey, contentId)`
-* `trackClicks(vm, eventKey, contentId)`
-* `trackView(vm, eventKey, contentId)`
+
+- `trackScrolling(vm, eventKey, contentId)`
+- `trackClicks(vm, eventKey, contentId)`
+- `trackView(vm, eventKey, contentId)`
 
 Where:
-* `vm` - view model of the component
-* `eventKey` - custom behave event key (optional - falls back to global plugin options)
-* `contentId` - unique identifier of the content in question 
+
+- `vm` - view model of the component
+- `eventKey` - custom behave event key (optional - falls back to global plugin options)
+- `contentId` - unique identifier of the content in question
 
 Example:
 

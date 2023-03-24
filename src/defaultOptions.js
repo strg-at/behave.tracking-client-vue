@@ -2,6 +2,7 @@ export default {
   debugMode: false,
   urlTracking: true,
   referrerTracking: true,
+  eventContentIdMode: 'default',
   eventKeyUrl: 'url',
   eventKeyReferrer: 'referrer',
   eventKeyClick: 'click',
@@ -12,6 +13,6 @@ export default {
     CLIENT_STORAGE_NAMESPACE: 'strgBeHave',
     COOKIE_NAME: 'STRG.BeHaveOptOut',
     RECONNECT_TIMEOUT: 60000,
-    ENDPOINT: null
-  }
+    ENDPOINT: null,
+  },
 }
