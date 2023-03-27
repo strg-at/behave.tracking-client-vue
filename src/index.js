@@ -3,14 +3,14 @@ import { setupVueTracking } from './modules'
 import defaultOptions from './defaultOptions'
 
 export default {
-  install (Vue, { router, options }) {
+  install(Vue, { router, options }) {
     options = {
       ...defaultOptions,
       ...options,
       config: {
         ...defaultOptions.config,
-        ...options.config
-      }
+        ...options.config,
+      },
     }
 
     if (global.document.cookie.match(`${options.config.COOKIE_NAME}=1`)) {
@@ -26,13 +26,7 @@ export default {
     const trackerAPI = connect(options)
 
     // closures for tracking methods
-    const {
-      trackUrls,
-      trackReferrers,
-      trackClicks,
-      trackView,
-      trackScrolling
-    } = setupVueTracking(trackerAPI, options)
+    const { trackUrls, trackReferrers, trackClicks, trackView, trackScrolling } = setupVueTracking(trackerAPI, options)
 
     // initialize navigation tracking
     options.urlTracking && trackUrls(router)
@@ -40,21 +34,22 @@ export default {
 
     // expose content tracking
     Vue.prototype.$behave = {
+      trackerAPI,
       trackScrolling,
       trackClicks,
-      trackView
+      trackView,
     }
-  }
+  },
 }
 
-function connect (options) {
+function connect(options) {
   const { config, debugMode } = options
 
   if (debugMode) {
     return {
-      push (event) {
-        console.log(event)
-      }
+      push(event) {
+        console.log('STRG.BeHave', event)
+      },
     }
   }
 

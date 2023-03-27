@@ -1,8 +1,8 @@
-export const setupClickTracking = (getPushEvent, options) => (vm, eventKey, contentId) => {
+export const setupClickTracking = (getPushEvent, options) => (vm, eventKey, eventValue, contentId) => {
   const pushEvent = getPushEvent(eventKey || options.eventKeyClick, contentId)
 
   const onClick = () => {
-    pushEvent(1)
+    pushEvent(eventValue)
     vm.$el.removeEventListener('click', onClick)
   }
 
