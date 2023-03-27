@@ -1,6 +1,6 @@
 {
   "name": "@strg/behave-tracking-client-vue",
-  "version": "1.0.1",
+  "version": "1.1.0",
   "description": "Vue.js plugin for BeHave tracking in SPAs",
   "main": "src/index.js",
   "scripts": {
